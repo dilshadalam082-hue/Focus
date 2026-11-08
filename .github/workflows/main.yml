@@ -38,6 +38,13 @@ jobs:
       - name: Generate Android and iOS Platform Files
         run: flutter create --platforms=android,ios .
 
+       - name: Fix Gradle Download URL
+        run: |
+          sed -i 's#^distributionUrl=.*#distributionUrl=https\\://downloads.gradle.org/distributions/gradle-9.3.1-bin.zip#' android/gradle/wrapper/gradle-wrapper.properties
+
+      - name: Setup Gradle Cache
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Install Dependencies
         run: flutter pub get
 
