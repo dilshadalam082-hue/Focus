@@ -44,7 +44,7 @@ class _MainShellState extends State<MainShell> {
         selectedIndex: index,
         onDestinationSelected: (value) => setState(() => index = value),
         backgroundColor: Colors.white,
-        indicatorColor: focusPurple.withOpacity(.12),
+        indicatorColor: focusPurple.withValues(alpha: 0.12),
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: 'Home'),
           NavigationDestination(icon: Icon(Icons.play_circle_outline), selectedIcon: Icon(Icons.play_circle), label: 'Reels'),
