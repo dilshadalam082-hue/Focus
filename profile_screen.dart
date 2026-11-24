@@ -1,4 +1,0 @@
-import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-class ProfileScreen extends StatelessWidget{const ProfileScreen({super.key});@override Widget build(BuildContext context)=>Scaffold(appBar:AppBar(title:const Text('Profile'),actions:[IconButton(onPressed:()async{await Supabase.instance.client.auth.signOut();if(context.mounted)Navigator.of(context).pushNamedAndRemoveUntil('/',(r)=>false);},icon:const Icon(Icons.logout))]),body:FutureBuilder(future:Supabase.instance.client.from('profiles').select().eq('id',Supabase.instance.client.auth.currentUser!.id).maybeSingle(),builder:(c,s){final d=s.data;return Center(child:Column(mainAxisSize:MainAxisSize.min,children:[const CircleAvatar(radius:44,child:Icon(Icons.person,size:40)),const SizedBox(height:12),Text(d?['username']??'Your profile',style:const TextStyle(fontSize:22)),Text(d?['bio']??'') ]));}));}
-}
