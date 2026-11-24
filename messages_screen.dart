@@ -1,2 +1,0 @@
-import 'package:flutter/material.dart';
-class MessagesScreen extends StatelessWidget{const MessagesScreen({super.key});@override Widget build(BuildContext context)=>Scaffold(appBar:AppBar(title:const Text('Messages')),body:const Center(child:Padding(padding:EdgeInsets.all(24),child:Text('Chat UI and realtime messaging tables are planned for the next build stage. Configure Supabase and secure messaging policies before use.',textAlign:TextAlign.center))));}
