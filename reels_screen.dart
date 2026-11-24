@@ -1,0 +1,4 @@
+import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+class ReelsScreen extends StatelessWidget{const ReelsScreen({super.key});@override Widget build(BuildContext context)=>Scaffold(appBar:AppBar(title:const Text('Reels')),body:FutureBuilder(future:Supabase.instance.client.from('posts').select().eq('media_type','video').order('created_at',descending:true),builder:(c,s){if(!s.hasData)return const Center(child:CircularProgressIndicator());final items=List<Map<String,dynamic>>.from(s.data as List);if(items.isEmpty)return const Center(child:Text('No reels yet'));return ListView.builder(itemCount:items.length,itemBuilder:(c,i)=>ListTile(leading:const Icon(Icons.video_library),title:Text(items[i]['caption']??'Video'),subtitle:Text(items[i]['media_url']??'')));}));}
+}
